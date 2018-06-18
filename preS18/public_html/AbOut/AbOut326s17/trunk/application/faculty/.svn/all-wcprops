@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/AbOut_2014/!svn/ver/84/trunk/application/faculty
+END
+FacultyController.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/AbOut_2014/!svn/ver/81/trunk/application/faculty/FacultyController.php
+END
+FacultyFormProcessor.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/AbOut_2014/!svn/ver/84/trunk/application/faculty/FacultyFormProcessor.php
+END
+FacultyREST.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/AbOut_2014/!svn/ver/84/trunk/application/faculty/FacultyREST.php
+END

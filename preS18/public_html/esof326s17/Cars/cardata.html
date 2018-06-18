@@ -1,0 +1,47 @@
+<!-- 
+ Project: Class09Exercise
+ 
+ File: .../cardata.html
+ 
+ Execution Environments Firefox 50.1.0
+ 
+ History
+ ==========
+ Date		Author				Description
+ ----------------------------------
+ 02/8/17	Nathaniel lewis		Initial HTML only version
+ 
+ Description
+ Displays a webpage that allows a query of the carsLNC Database
+
+------- Requirements -------
+R01 Display the purpose of the form
+R02 Prompt for user Query
+R03 Text area that takes in the query
+R04 Able to Clear the box
+R05 Able to Submit the query to the next page
+
+------- Algorithm ---------
+A01 <title> with the purpose of the form
+A02 Text Label that asks for the Query
+A03 Text area that will accept the query
+A04 Button that resets the page/box
+A05 Button that submits the query to access_cars.php 
+-->
+	<html>
+<!--L01--><head><title> Access to the carsLNC database </title?
+		  </head>
+		  <body>
+			<p>
+<!--L02-->		Please enter your query:
+				<br />
+<!--L03-->			<form action = "access_cars.php" method = "post">
+					<textarea rows = "2" cols =  "80" name = "query" >
+					</textarea>
+					<br /><br />
+<!--L04-->			<input type = "reset" value = "Reset" />
+<!--L05-->			<input type = "submit" value = "Submit request" />
+				</form>
+			</p>
+		</body>
+	</html>

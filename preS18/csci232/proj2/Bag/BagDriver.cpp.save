@@ -1,0 +1,137 @@
+/** @file BagDriver.cpp
+ * Bag Driver - use to test Bag class methods and 
+ *  functions that are independent from the Bag class.
+ *  Bags 1 & 2 are used trough, bag 0 is extra for testing
+ *                                
+ * @author  Jeff Braun             
+ * @version 0.9
+ * @date 9/2/14
+ **********************************************************/
+
+//-----------------------
+// C++ includes
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+//-----------------------
+// Application includes
+//-----------------------
+#include "Bag.h"
+#include "io_functions.h"
+
+//-----------------------
+// Using statements
+//-----------------------
+using namespace std;
+
+//----------------------
+// Functions Prototypes
+//----------------------
+int getBagNum();                 //prompts user for bag number
+void processOption(char& c, Bag<string> bags[]);  //processes menu input option
+void displayBag(Bag<string>& bag);   //display the bag's entire contents
+void restoreBag(Bag<string>& bag);   //prompts for filename that contains items
+void saveBag(Bag<string>& bag);   //prompts for filename to store items into
+
+/** Bag Driver - use to test Bag class methods and 
+ * bag functions that are independent from the Bag class.
+ **********************************************************/
+int main()
+{
+  int bagNum;              //The bag number to use
+  Bag<string> bag[3];     // bags to test, bag 0 used for intersection/union
+  string restoreBagFlg;  // holds response to restore bag from a file
+  string menuOption;  	// holds menu option input from user
+
+//Opening Message
+  cout<< "Bag Driver - Tests the Bag class using two bags" << endl;
+
+//Restore the bag from a file
+  cout<< "----------------------------------" << endl; 
+  cout<< "Would you like to restore a bag from a file? (Y/N) ";
+   
+//Read user input - use a string to accept all inputs
+  getline(cin, restoreBagFlg);
+  bagNum = getBagNum();
+  if(restoreBagFlg[0] == 'Y' || restoreBagFlg[0] == 'y'){ 
+    restoreBag(bag[bagNum]);            // opens/reads file into aBag
+  }
+
+//Menu driven part of main program
+//Initial menu display and loop to process menu option
+  printMenu();
+  do {
+    cout << "\nEnter menu selection (0 for menu): ";
+    getline(cin, menuOption);    //Use a string in case user enters chars
+    processOption(menuOption[0], bag);
+  }while(menuOption[0] != '8');
+   
+  return 0;            //Exit program
+}//main()
+
+
+//---------------------------
+// Local function definitions
+//---------------------------
+
+/**Reads, validates, and returns a 1 or 2
+ * @pre  none
+ * @post none
+ * @return 1 or 2
+ */
+int getBagNum()
+{
+  int bagNum=0;  
+  while(bagNum != 1 && bagNum != 2)
+  {
+    cout << "Which bag (1 or 2)? ";
+    bagNum = getInt();
+  }
+  return bagNum;
+} //getBagNum()
+
+/**
+ * Displays the entire content of the bag
+ * @param[in] bag to display
+ * @remarks If bag is empty, prints empty bag message.
+ */
+void displayBag(Bag<string>& bag) 
+{
+  string item;
+  vector<string> bagVector = bag.toVector();
+
+  if(bagVector.size() > 0)
+  {
+    cout << "The bag contains: " << endl;
+    for(unsigned int i=0; i<bagVector.size(); i++){
+      cout << bagVector[i] << ", ";
+    }
+    cout<<endl;
+  }
+  else
+  {
+    cout << "The bag is empty." << endl;
+  }
+}
+
+
+/**
+  * Process input menu option character from user.
+  * @param[in] menuChar menu option character
+  * @param[in,out] bag the bag to be modified
+  */
+void processOption(char &menuChar, Bag<string> bag[])
+{
+  int bagNum;
+  string item;
+  string saveBagFlg;
+
+   switch (menuChar)
+   {
+    case '0':               // Display menu options
+       printMenu();
+       break;
+

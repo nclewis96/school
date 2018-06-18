@@ -1,0 +1,35 @@
+Nathaniel Lewis
+Extra Credit for Project 2
+
+1 )		The efficiency of the serial version is O(n) because the 
+time for completion doubles with the number of divisions.
+4000 - 0.000175798 : 8000 - 0.000334148 : 16000 - 0.000609455 : 32000 - 0.00121815
+64000 - 0.0024608 : 128000 - 0.00477727 : 256000 - 0.00985733 : 512000 - 0.0205004
+
+2 ) 	The efficiency of the parallel version is O(n) because the time completion doubles
+with the number of divisions.
+4000000 0.013497 : 8000000 0.025843 : 16000000 0.050959 : 32000000 0.115573
+64000000 0.199856 : 128000000 0.402444 : 256000000  0.789381 : 51200000 1.607651
+1024000000 3.213794
+ 
+3 )		Both versions take about the same amount of time with 1,000,000,000 divisions,
+w/ the Parallel version taking 37.334548 Sec and the Serial version taking 37.5288745 sec.
+The reason it runs the same is that when the compiler does not need to create multiple 
+threads it is practically the same program.
+
+4 )		The programs completion time starts to decrease as the number of threads increases
+to the number of cores the server has. After it reaches that number (12) the time for
+the program to complete stays pretty consistent, if not slightly longer than it did at the 
+exact number of cores. Should be a negative log function.
+With 1,000,000,000 divisions (number of threads - time of completion) :
+2 - 18.39136 : 4 - 9.411008 : 8 - 4.706049 : 12 - 3.132230 : 16 - 3.526233 : 24 - 3.163623
+
+5 )		Using the -O3 optimization flag halved the completion time of the executable when
+compared to the executable of the program without the flag.
+
+6 ) 	The more threads used the more the computer is able to split the work. With the 
+work split up the program's completion time improves until there are more threads than 
+processors available.
+
+7 ) 	I accurately calculated 11 digits of pi, using 2,147,483,647 segments and 12 threads.
+It took 6.844 seconds to complete.

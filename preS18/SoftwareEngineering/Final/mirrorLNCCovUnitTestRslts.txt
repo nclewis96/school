@@ -1,0 +1,59 @@
++++MirrorLNC Test Run+++
+Testing the file MirrorLNC.cpp against MirrorNKL.cpp
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT01in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT02in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT03in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT04in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT05in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT06in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT07in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT08in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT09in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT10in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT11in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT12in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT13in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT14in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT15in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT16in.txt	Failed
+
+-----------------------------------------
+Input File:	mirrorUnitTestsLNC/mirrorLNCT17in.txt	Failed
+
+-----------------------------------------
+
+17 tests FAILED
+
+---MirrorLNC Test Run---

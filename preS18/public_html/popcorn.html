@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- 
+ Project: ClassExample01
+ 
+ File: .../popcornLNC.html
+ 
+ Execution Environments Firefox 50.1.0
+ 
+ History
+ ==========
+ Date		Author				Description
+ ----------------------------------
+ 01/18/17	Nathaniel lewis		Initional HTML only version
+ 
+ Description
+ Displays a webpage order form for the gymnastics booster club
+
+------- Requirements -------
+R01 Displays the name and purpose of the form
+R02 Able to Input Personal Information
+	Name, Street Address, and City, State, Zip
+R03 Able to order a quantity of any of the four products
+R04 Displays new section of Form, Payment Method
+R05 Able to choose the correct Payment Method
+R06 Able to Submit the Form
+R07 Able to Clear the form
+R08 Will run in Firefox
+------- Algorithm ---------
+A01 Header <h1> with the name of the form
+A02 Personal Info - 3 text boxes 
+	 Buyer's Name
+     Street Address
+     City, State, Zip
+A03 Order Information - Table
+	 Each Row is a product, with it's price and the quantity ordered
+A04 Header <h3> with the new section information
+A05 Payment Method - radio buttons
+	four radio buttons that correspond to a different payment method
+A06 Submit Button
+A07 Reset button with "Clear Order Form"
+-->
+<html>
+<body>
+<form action = "popcornLNC.php" method = "post">
+<!--L01-->
+<h1>Welcome to Millenium Gymnastics Booster Club Popcorn Sales</h1>
+<form>
+<!-- Personal Info -->
+<!--L02-->
+	Buyer's Name:    <input type = "text" name = "buyerName" size = "36"> 
+    <br>
+    <br>
+    Street Address:  <input type = "text" name = "streetAddress" size = "35"> 
+    <br>
+    <br>
+    City, State, Zip: <input type = "text" name = "cityStZip" size = "35">
+    <br>
+	<br>
+<!--L03-->
+<!-- Order Info -->
+<table >
+  <tr>
+    <th>Product Name</th>
+    <th>Price</th> 
+    <th>Quantity</th>
+  </tr>
+  <tr>
+    <td>Unpopped Popcorn (1 lb.)</td>
+    <td>$3.00</td> 
+    <td><input type = "text" name = "unpopped" size = "2"> </td>
+  </tr>
+  <tr>
+    <td>Caramel Popcorn (2 lb. cannister)</td>
+    <td>$3.50</td> 
+    <td><input type = "text" name = "caramel" size = "2"></td>
+  </tr>
+  <tr>
+  	<td> Caramel Nut Popcorn (2lb. cannister) </td>
+    <td> $4.50 </td>
+    <td> <input type = "text" name = "caramelNut" size = "2"> </td>
+  </tr>
+  <tr>
+  	<td> Toffey Nut Popcorn (2 lb. cannister) </td>
+    <td> $5.00 </td>
+    <td> <input type = "text" name = "toffeyNut" size = "2"> </td>
+</table>
+<!-- Payment Info -->
+	<!--L04-->
+	<h3> Payment Method: </h3>
+    <!--L05-->
+	<input type = "radio" name = "payment" value = "Visa" > Visa 
+    <br>
+	<input type = "radio" name = "payment" value = "MasterCard" > Master Card 
+    <br>
+	<input type = "radio" name = "payment" value = "Discover" > Discover 		
+	<br>
+   	<input type = "radio" name = "payment" value = "Check" > Check <br>
+	<br>	
+	<!-- Submit/Clear -->
+    <!--L06-->
+	<input type = "submit" value = "Submit Order" >
+    <!--L07-->
+	<input type = "reset" value = "Clear Order Form"> 
+</form>
+</body>
+</html>

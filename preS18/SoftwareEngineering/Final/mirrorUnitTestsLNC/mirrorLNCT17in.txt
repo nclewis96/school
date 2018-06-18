@@ -1,0 +1,40 @@
+1
+x x
+3
+xx. ..x
+xx. xx.
+..x xx.
+3
+xxx x.x
+xx. xx.
+x.x xxx
+4
+...x .xxx
+xx.x .x..
+..xx ..x.
+.... ..x.
+5
+..xx. xx.x.
+xx..x .x.x.
+...x. xx..x
+xxx.x ..x.x
+x.x.x xx.x.
+1
+. x
+2
+.. .x
+x. ..
+6
+...xxx xxxxxx
+x..xx. ..x...
+.x.... xxx.xx
+xxx.xx .x....
+..x... x..xx.
+xxxxxx ...xxx
+3
+..x .xx
+xx. .xx
+xxx x.x
+2
+.x ..
+xx xx

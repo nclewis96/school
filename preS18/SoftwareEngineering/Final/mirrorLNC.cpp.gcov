@@ -1,0 +1,153 @@
+        -:    0:Source:mirrorLNC.cpp
+        -:    0:Graph:mirrorLNC.gcno
+        -:    0:Data:mirrorLNC.gcda
+        -:    0:Runs:17
+        -:    0:Programs:1
+        -:    1:/** **************************************************************
+        -:    2:* PROJECT: Mirror
+        -:    3:*
+        -:    4:* DEVELOPMENT ENVIRONMENTS
+        -:    5:* Textwrangler and Notepad++
+        -:    6:*
+        -:    7:* EXECUTION ENVIRONMENTS
+        -:    8:* Katie Server
+        -:    9:*
+        -:   10:* HISTORY:
+        -:   11:* Date		Author			Description
+        -:   12:* ====      ======          ===========
+        -:   13:* 12/12/16	Nathaniel Lewis	Initial implementation and test
+        -:   14:*
+        -:   15:* DESCRIPTION:
+        -:   16:* Finds the transformation that occurs between pattern 1 and pattern 2 
+        -:   17:*****************************************************************/
+        -:   18:#include <iostream>
+        -:   19:#include <fstream>
+        -:   20:#include <vector>
+        -:   21:
+       30:   22:std::string transformationCheck(char array1[10][10], char array2[10][10], int size) {
+        -:   23:	//booleans to keep track of which rotation or reflection happen.
+       30:   24:/*L11*/	bool rotate90 = true;
+       30:   25:		bool rotate180 = true;
+       30:   26:		bool rotate270 = true;
+       30:   27:		bool reflect = true;
+       30:   28:		bool reflect90 = true;
+       30:   29:		bool reflect180 = true;
+       30:   30:		bool reflect270 = true;
+       30:   31:		bool preservation = true;
+       30:   32:		bool improper = true;
+        -:   33:	
+        -:   34:		//Loop through each row of the old pattern and check to see if it is in the 
+        -:   35:		//correct location on the new pattern.
+      122:   36:/*L12*/	for (int i = 0; i < size; i++) {
+      518:   37:/*L13*/		for (int j = 0; j < size; j++) {
+      426:   38:/*L14*/			if (array1[i][j] == array2[i][j] && preservation)
+       24:   39:					preservation = true;
+        -:   40:				else
+      402:   41:					preservation = false;
+      426:   42:				if (array1[i][j] == array2[j][size-1-i] && rotate90)
+       62:   43:					rotate90 = true;
+        -:   44:				else
+      364:   45:					rotate90 = false;
+      426:   46:				if (array1[i][j] == array2[size-1-i][size-1-j] && rotate180)
+       63:   47:					rotate180 = true;
+        -:   48:				else 
+      363:   49:					rotate180 = false;
+      426:   50:				if (array1[i][j] == array2[size-1-j][i] && rotate270)
+       60:   51:					rotate270 = true;
+        -:   52:				else 
+      366:   53:					rotate270 = false;
+      426:   54:				if (array1[i][j] == array2[size-1-i][j] && reflect)
+      232:   55:					reflect = true;
+        -:   56:				else
+      194:   57:					reflect = false;
+      426:   58:				if (array1[i][j] == array2[j][i] && reflect90)
+       41:   59:					reflect90 = true;
+        -:   60:				else
+      385:   61:					reflect90 = false;
+      426:   62:				if (array1[i][j] == array2[i][size-1-j] && reflect180)
+       30:   63:					reflect180 = true;
+        -:   64:				else
+      396:   65:					reflect180 = false;
+      426:   66:				if (array1[i][j] == array2[size-1-j][size-1-i] && reflect270)
+      127:   67:					reflect270 = true;
+        -:   68:				else
+      299:   69:					reflect270 = false;
+        -:   70:			}//for
+        -:   71:		}//for
+        -:   72:
+       30:   73:/*L15*/	if (preservation)
+        4:   74:			return " was preserved.";
+       26:   75:		else if (rotate90)
+        5:   76:			return " was rotated 90 degrees.";
+       21:   77:		else if (rotate180)
+        4:   78:			return " was rotated 180 degrees.";
+       17:   79:		else if (rotate270)
+        5:   80:			return " was rotated 270 degrees.";
+       12:   81:		else if (reflect)
+        3:   82:			return " was reflected vertically.";
+        9:   83:		else if (reflect90)
+        1:   84:			return " was reflected vertically and rotated 90 degrees.";
+        8:   85:		else if (reflect180)
+        1:   86:			return " was reflected vertically and rotated 180 degrees.";
+        7:   87:		else if (reflect270)
+        2:   88:			return " was reflected vertically and rotated 270 degrees.";
+        -:   89:/*L16*/	else
+        5:   90:			return " was improperly transformed.";
+        -:   91:	}//transformCheck()
+        -:   92:/** --------------------------------------------------------------
+        -:   93:* DESCRIPTION - main
+        -:   94:* Accepts the input and calls transformCheck, outputs the result
+        -:   95:* 
+        -:   96:* Sample Runs
+        -:   97:* -----------
+        -:   98:*
+        -:   99:* +++++++++++++++++++++++++++++
+        -:  100:* +Enter mirror.cpp
+        -:  101:* +++++++++++++++++++++++++++++
+        -:  102:*
+        -:  103:* 5
+        -:  104:* .x... ..x..
+        -:  105:* x..x. .x...
+        -:  106:* ..x.x ..x..
+        -:  107:* ..... x.x..
+        -:  108:* x.... .x..x
+        -:  109:*
+        -:  110:* Pattern 1 was Rotated 90 Degrees.
+        -:  111:* 
+        -:  112:* +++++++++++++++++++++++++++++
+        -:  113:* +Exit mirror.cpp
+        -:  114:* +++++++++++++++++++++++++++++
+        -:  115:* 
+        -:  116:* */
+       17:  117:int main() {
+       17:  118:/*L01*/	int patternID = 1;
+        -:  119:		int patternSize;
+        -:  120:/*L02*/	char patternOrder[10][10];
+        -:  121:		char newPattern[10][10];
+        -:  122:		//Assign the first number given to be the pattern size.
+        -:  123:
+       64:  124:/*L03*/	while (std::cin >> patternSize) {
+        -:  125:			//2D arrays that will contain the original and new patterns.
+        -:  126:			
+        -:  127:			//Loop through each row and add the appropriate values to the arrays
+      122:  128:/*L04*/		for (int i = 0; i < patternSize; i++) {
+        -:  129:				//Fill the original pattern array
+      518:  130:/*L05*/			for (int j = 0; j < patternSize; j++) {
+      426:  131:/*L06*/				std::cin >> patternOrder[i][j];
+        -:  132:				}//for
+        -:  133:				//Fill the new pattern array
+      518:  134:/*L07*/			for (int k = 0; k < patternSize; k++) {
+      426:  135:/*L08*/				std::cin >> newPattern[i][k];
+        -:  136:				}//for
+        -:  137:			}//for
+       30:  138:/*L09*/		std::cout << "Pattern " << patternID << transformationCheck(patternOrder, newPattern, patternSize);
+       30:  139:			std::cout << std::endl;
+        -:  140:			//Assign the next number given to be the pattern size.
+        -:  141:/*L10*/		
+       30:  142:			patternID++;
+        -:  143:			
+        -:  144:		}//while
+       68:  145:}
+        -:  146:
+        -:  147:
+        -:  148:

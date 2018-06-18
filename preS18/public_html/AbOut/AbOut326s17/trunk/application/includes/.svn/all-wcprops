@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/AbOut_2014/!svn/ver/84/trunk/application/includes
+END
+Bootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/AbOut_2014/!svn/ver/81/trunk/application/includes/Bootstrap.php
+END
+HTTPBootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/AbOut_2014/!svn/ver/84/trunk/application/includes/HTTPBootstrap.php
+END
+footer.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/AbOut_2014/!svn/ver/62/trunk/application/includes/footer.php
+END
+startup.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/AbOut_2014/!svn/ver/81/trunk/application/includes/startup.php
+END
+header.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/AbOut_2014/!svn/ver/62/trunk/application/includes/header.php
+END

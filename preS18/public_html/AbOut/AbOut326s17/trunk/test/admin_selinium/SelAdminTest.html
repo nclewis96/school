@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://katie.mtech.edu/" />
+<title>SelAdminTest</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SelAdminTest</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/~accass/testing_2014/AbOut_Best/trunk/application/admin/AdminController.php?view=user&amp;user=-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=name</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=username</td>
+	<td>tUser</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=name</td>
+	<td>Test User2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Semester</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=List All Semesters</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Change Default Semester</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=defaultSemester</td>
+	<td>label=Spring 2014</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Outcome</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=outcomeName</td>
+	<td>CS X</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=outcomeDescription</td>
+	<td>Test outcome.</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=start</td>
+	<td>label=Spring 2014</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=outcomeDescription</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Course</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=cNumber</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=courseName</td>
+	<td>Test Course</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=cs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=se</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=start</td>
+	<td>label=Spring 2014</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[name=&quot;CAC a&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[name=&quot;CAC b&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[name=&quot;CAC c&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[name=&quot;EAC 1&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='tableNav']/tbody/tr[82]/td/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Add Offering')])[20]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=single</td>
+	<td>label=Spring 2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=user</td>
+	<td>label=WtQuinn</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=student</td>
+	<td>Test Student</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//form[@id='dataForm']/fieldset/table[2]/tbody/tr[2]/td[2]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=student</td>
+	<td>Test1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=student</td>
+	<td>Test 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=removeAll</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CSCI 777 - Test Course</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>This course still has offerings associated with it!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='tableNav']/tbody/tr[82]/td/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Spring 2014, 01')])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CSCI 777 - Test Course</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=delete</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

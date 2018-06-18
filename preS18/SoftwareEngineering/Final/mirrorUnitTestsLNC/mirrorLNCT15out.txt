@@ -1,0 +1,2 @@
+Pattern 1 was rotated 270 degrees.
+Pattern 2 was reflected vertically.

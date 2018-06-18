@@ -1,0 +1,220 @@
+%%
+% F15 CSCI 232 - Data Structures and Algorithms
+% Phillip J. Curtiss, Associate Professor
+% Computer Science Department, Montana Tech
+% Museum Buildings, Room 105
+%
+% Project-3: Santa's Lists
+% Date Assigned: 2015-10-14
+% Date Due: 2015-10-26 by midnight
+%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=1in,letterpaper]{geometry}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+
+\newcounter{x}\setcounter{x}{1}
+\newtheorem{inneraxiom}{Axiom}
+\newenvironment{axiom}
+  {\renewcommand\theinneraxiom{\arabic{x}}\inneraxiom\stepcounter{x}}
+  {\endinneraxiom}
+
+%%
+% Running Header and Footer for Project
+\lhead{Project-3\\ F15 CSCI 232 - DSA}
+\chead{Santa's Lists}
+\rhead{Assigned: 2015-10-14\\ Due: 2015-10-26 by midnight}
+\lfoot{Philip J. Curtiss, Assistant Professor\\Computer Science Department, Montana Tech}
+\cfoot{}
+\rfoot{Page~\thepage~of~\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%
+% Settings for the Listings Environment
+\lstset{language=C++}
+
+%%
+% Title Page Information
+\title{Project-3: Santa's Lists \\
+	   F15 CSCI 232 - Data Structures and Algorithms}
+\author{Phillip J. Curtiss, Assistant Professor\\
+	    Computer Science Department, Montana Tech\\
+		Museum Building, Room 105}
+
+\begin{document}
+\pagestyle{fancy}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Project-3: Due 2015-10-26 by midnight}
+
+\paragraph{Purpose:} Santa is getting ready for the upcoming Holiday Season. He has been spending all year long creating lists of those who are naughty and those who are nice. These lists can be long and difficult to manage. He would desperately like for a program where he could load these list data items, in such a way that they are sorted by country and postal code so he can then print out the list in this ordered fashion on the Big Day. The output should also include the list of gifts for each nice girl and boy, and the single gift of coal for all the naughty children. 
+
+You are provided Axioms for the ADT List along with pre- and postconditions. You must provide a linked list implementation of the ADT List that conforms with the specifications (the Axioms and pre- and postconditions) and provides the behavior of the ADT List and functions as described below.
+
+\paragraph{Objectives:} ~
+\begin{itemize}
+	\item Using UML Diagrams to Specify ADT
+	\item Using existing C++ class methods
+	\item Create methods that implement the ADT List
+	\item Manipulate Lists of Complex Data Types
+	\item Manipulate Linked List Structures
+	\item Work with Pointers in C++
+	\item Pass objects by reference
+	\item Use C++ source file standards and doxygen to generate documentation
+	\item Modify and add features to the provided main program
+\end{itemize}
+
+\begin{table}
+\caption{UML Specification of ADT List} \label{uml:adtList}
+\begin{lstlisting}
+	+isEmpty(): boolean
+	+getLength(): integer
+	+insert(newPosition: integer, newEntry: ItemType): boolean
+	+remove(position: integer): boolean
+	+clear(): void
+	+getEntry(position: integer): ItemType
+	+setEntry(position: integer, newEntry: ItemType): void
+	+swap(positionA: integer, positionB: interger): boolean
+	+reverse(): void
+	+replace(position: integer, newEntry: ItemType): boolean
+	+getPosition(entry: ItemType): integer
+	+contains(entry: ItemType): boolean
+	+loadList(string: filename): boolean
+	+displayList(): void
+\end{lstlisting}
+\end{table}
+
+\paragraph{Obtaining the Project Files:} You will complete the project using your own user account on the department's linux system \verb|katie.mtech.edu|. You should ssh into your account, and execute the command \verb|mkdir -p csci232/proj3|. This will make the directory \verb|proj3| inside the directory \verb|csci232|, and also create the directory \verb|csci232| if it does not yet exist - which it should from our previous lab session. You should then change the current working directory to proj3 by executing the command \verb|cd csci232/proj3|. You can test that you are in the correct current working directory by executing the command \verb|pwd| which should print something like \verb|/home/students/<username>/csci232/proj3|, where \verb|<username>| is replaced with the username associated with your account. Lastly, execute the command \verb|tar -xzvf ~curtiss/csci232/proj3.tgz| and this will expand the project files from the archive into your current working directory. You may consult \verb|man tar| to learn about the archive utility and its command line options. 
+
+\paragraph{Project Function:}  
+
+Your program will be provided different test files to read where each line of the file contains the following items in the following structure: 
+
+\begin{description}
+    \item[Token-0:] List name 'naughty' 'nice'
+	\item[Token-1:] 2-character country code
+	\item[Token-2:] Integer-based postal code 
+	\item[Token-3:] Last Name of Girl or Boy
+	\item[Token-4:] First Name of Girl or Boy
+	\item[Token-5...n:] List of Single Word Strings representing gift(s)
+\end{description}
+
+An extract of such a file:
+\begin{quote}
+	\verb|nice us 59701 coe doug chemistry_set hawaiian_shirt baseball_cap|\\
+	\verb|naughty ru 129 potin vladamir coal|
+\end{quote}
+
+You will need to instantiate multiple lists, each with a structure where each item in the list should contain the following: 
+\begin{itemize}
+	\item Country Code
+	\item Postal Code
+	\item Last Name
+	\item First Name
+	\item A List - of gift(s)
+\end{itemize}
+
+You need to add and remove items from the list in a way that ensures the items in the list for a given set of country codes are clustered in a contiguous group, and the items within this group are ordered by their postal code. When the list is displayed, the output should be a report consisting of multiple rows of the form: \\
+
+\begin{tabular}{rl rl rl rl}
+	\hline
+	Country: & us & Postal Code: & 59701 & Last Name: & coe & First Name: & Doug \\
+	Gifts: & \multicolumn{7}{l}{chemistry\_set hawaiian\_shirt baseball\_cap ...} \\
+	\hline
+\end{tabular}\\
+
+\begin{table}
+	\caption{Axioms for List ADT} \label{axiom:adtlist}
+	\begin{axiom} \lstinline|(new List()).isEmpty() = true| \end{axiom}
+	\begin{axiom} \lstinline|(new List()).getLength() = 0| \end{axiom}
+	\begin{axiom} \lstinline|aList.getLength() = (aList.insert(i, x)).getLength() - 1| \end{axiom}
+	\begin{axiom} \lstinline|aList.getLength() = (aList.remove(i)).getLength() + 1| \end{axiom}
+	\begin{axiom} \lstinline|(aList.insert(i, item)).isEmpty() = false| \end{axiom}
+	\begin{axiom} \lstinline|(new List()).remove(i) = false| \end{axiom}
+	\begin{axiom} \lstinline|(aList.insert(i, x)).remove(i) = aList| \end{axiom}
+	\begin{axiom} \lstinline|(new List()).getEntry(i) = error| \end{axiom}
+	\begin{axiom} \lstinline|(aList.insert(i, x)).getEntry(i) = x| \end{axiom}
+	\begin{axiom} \lstinline|aList.getEntry(i) = (aList.insert(i, x)).getEntry(i + 1)| \end{axiom}
+	\begin{axiom} \lstinline|aList.getEntry(i + 1) = (aList.remove(i)).getEntry(i)| \end{axiom}
+	\begin{axiom} \lstinline|(new List()).setEntry(i, x) = error| \end{axiom}
+	\begin{axiom} \lstinline|(aList.setEntry(i, x)).getEntry(i) = x| \end{axiom}
+\end{table}
+
+The list of Axioms for the List ADT should not be violated in your implementation and you should definitely take care to make use of exception handling throughout your implementation to assist your program in recovering gracefully from errors. 
+
+You are required to use Javadoc-style comments so doxygen can be used to create html or pdf documentation from your code. Examples of complaint comments are provided throughout the supplied source files. For further doxygen documentation see the site \verb|http://doxygen.org|. 
+
+\paragraph{Building the Project:} The project includes a \verb|Makefile| you may use to generate the object and executable files from source code files. Similarly, some of the source code files can be generated from the UML diagram that is also included. Consult the \verb|Makefile| and understand the rules included and the dependencies and the rule sets that are used to generate the executable program. Use caution when updating the \verb|Makefile| to ensure rule sets make sense. 
+
+\paragraph{Helpful Reminders:} Study and pay close attention to the provided class(es) and methods. Understand their return types and use them in the code you author to provide robust code that can handle exceptions to inputs and boundary conditions. Look at all the code provided. Read the codes's comments and implement what is required where indicated. The feedback provided to the user may be poor in certain areas of the main driver program. Fix this and provide appropriate feedback to the end-user to inform them of what the program is doing. Make sure the user confirms actions that result in modifications to the contents of their bag. Be cognizant of the {\em{}best practices we discussed in lecture and abide by good coding style - all of which will be factored into the assessment and grade for this project}. Be sure to review the UML diagram and the \verb|Makefile| and understand how files are being generated and their dependencies. 
+
+\paragraph{Submission of Project:} You have been provided a \verb|Makefile| for this project that will help you not only build your project, but also submit the project in the correct format for assessment and grading. Toward the bottom of the provided \verb|Makefile| you should see lines that look like:
+
+\begin{lstlisting}
+# Rule to submit programming assignments to graders
+# Make sure you modify the $(subj) $(msg) above and the list of attachment
+# files in the following rule - each file needs to be preceeded with an
+# -a flag as shown
+subj    = "CSCI232 DSA - Proj3"
+msg     = "Please review and grade my Project-3 Submission"
+submit:	listing-A1.cpp listing-A2.cpp
+	$(tar) $(USER)-proj3.tgz $?
+	echo $(msg) | $(mail) -s $(subj) -a $(USER)-proj3.tar.gz $(addr)
+\end{lstlisting}
+
+Make sure you update the dependencies on the \verb|submit:| line to ensure all the required files (source files) are included in the archive that gets created and then attached to your email for submission. You do not need to print out any of your program files - submitting them via email will date and time stamp them and we shall know they come from your account. If you submit multiple versions, we will use the latest version up to when the project is due. 
+
+\paragraph{Extra Credit:} Create a UML diagram that represents the relationship between classes and interfaces. You should use the UML tools in the  \verb|dia| graphing program. Once you generate the files, either (1) rename the existing files and replace them with the output of the \verb|dia2code -t cpp| files, or (2) moify the source files to use the output of the \verb|dia2code -t cpp| command - don't forget to update the \verb|Makefile| as appropriate. 
+ 
+\paragraph{Questions:} If you have any questions, please do not hesitate to get in contact with either Phil Curtiss (\verb|pjcurtiss@mtech.edu|) or Ross Moon (\verb|rmoon@mtech.edu|) at your convenicne, or stop by during office hours, and/or avail yourself of the time in the MUS lab when Ross is available. 
+
+\newpage
+\section*{Project File Manifest:}
+
+\subsection*{List Interface}
+
+\lstinputlisting{../src/ListInterface.h}
+
+\noindent\hrulefill
+
+\subsection*{List Main Driver}
+
+\lstinputlisting{../src/ListDriver.cpp}
+
+\noindent\hrulefill
+
+\subsubsection*{Node Header}
+
+\lstinputlisting{../src/Node.h}
+
+\noindent\hrulefill
+
+\subsubsection*{Node Implementation}
+
+\lstinputlisting{../src/Node.cpp}
+
+\noindent\hrulefill
+
+\subsubsection*{ListADT Header}
+
+\lstinputlisting{../src/ListADT.h}
+
+\noindent\hrulefill
+
+\subsubsection*{ListADT Implementation}
+
+\lstinputlisting{../src/ListADT.cpp}
+
+\noindent\hrulefill
+
+\subsection*{Makefile}
+
+\lstinputlisting{../src/Makefile}
+
+\end{document}
+

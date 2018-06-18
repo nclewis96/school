@@ -1,0 +1,27 @@
+# Makefile for Bag program driver - Jeff Braun
+
+#Macros to specify compiler, compiler/linking flags, target file
+C++  = g++
+CFLAGS = -Wall -Werror
+LD = g++
+LDFLAGS = 
+LIBS = 
+OBJS = BagDriver.o io_functions.o
+EXEC = Driver
+
+#Rules to create target file Driver
+# If any files on line with colon are modified, then recompile the object file
+all:		$(EXEC)
+
+$(EXEC):	$(OBJS)
+		$(LD) $(LDFLAGS) -o $(EXEC) $(OBJS) $(LIBS)
+
+io_functions.o:	io_functions.cpp io_functions.h
+		$(C++) $(CFLAGS) -c io_functions.cpp
+
+BagDriver.o:	BagDriver.cpp Bag.cpp Bag.h io_functions.h
+		$(C++) $(CFLAGS) -c BagDriver.cpp
+
+clean:
+		rm -f $(OBJS) $(EXEC) 
+

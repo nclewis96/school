@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/AbOut_2014/!svn/ver/76/trunk/test/model_phpUnit/PHP_Tests
+END
+FacultyTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/AbOut_2014/!svn/ver/66/trunk/test/model_phpUnit/PHP_Tests/FacultyTest.php
+END
+AdminTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/AbOut_2014/!svn/ver/76/trunk/test/model_phpUnit/PHP_Tests/AdminTest.php
+END
+LoginTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/AbOut_2014/!svn/ver/66/trunk/test/model_phpUnit/PHP_Tests/LoginTest.php
+END
+ReportTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/AbOut_2014/!svn/ver/76/trunk/test/model_phpUnit/PHP_Tests/ReportTest.php
+END

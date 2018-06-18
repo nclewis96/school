@@ -1,0 +1,57 @@
++++mirrorLNC Test Run+++
+Testing the file mirrorLNC.cpp
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT01in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT01out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT02in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT02out.txt
+Passed
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT03in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT03out.txt
+Passed
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT04in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT04out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT05in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT05out.txt
+Passed
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT06in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT06out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT07in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT07out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT08in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT08out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT09in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT09out.txt
+Passed
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT10in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT10out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT11in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT11out.txt
+Passed
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT12in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT12out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT13in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT13out.txt
+Passed
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT14in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT14out.txt
+Passed
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT15in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT15out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT16in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT16out.txt
+FAILED
+
+Input File: mirrorUnitTestsLNC/mirrorLNCT17in.txt  Output File: mirrorUnitTestsLNC/mirrorLNCT17out.txt
+FAILED
+
+10 test cases FAILED
+
+---mirrorLNC Test Run---

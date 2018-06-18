@@ -1,0 +1,16 @@
+#
+# Make submission
+#
+MAIL = mail
+ADDR = pcurtiss@mtech.edu
+TAR = tar -cvzf
+#
+# Submission
+#subj = 
+#subfiles = 
+#msg = 
+#proj = $(USER)-
+
+submit: $(subfiles)
+	$(TAR) $(proj) $?
+	echo $(msg) | $(MAIL) -s $(subj) -a $(proj) $(ADDR)

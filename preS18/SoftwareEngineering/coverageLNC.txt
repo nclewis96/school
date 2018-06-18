@@ -1,0 +1,164 @@
+        -:    0:Source:serviceStationLNC.cpp
+        -:    0:Graph:serviceStationLNC.gcno
+        -:    0:Data:serviceStationLNC.gcda
+        -:    0:Runs:8
+        -:    0:Programs:1
+        -:    1:/** **************************************************************
+        -:    2:* PROJECT: Service Station
+        -:    3:*
+        -:    4:* DEVELOPMENT ENVIRONMENTS
+        -:    5:* Textwrangler and Notepad++
+        -:    6:*
+        -:    7:* EXECUTION ENVIRONMENTS
+        -:    8:* Katie Server
+        -:    9:*
+        -:   10:* HISTORY:
+        -:   11:* Date		Author			Description
+        -:   12:* ====      ======          ===========
+        -:   13:* 10/18/16	Nathaniel Lewis	Initial implementation and test
+        -:   14:*
+        -:   15:* DESCRIPTION:
+        -:   16:* Finds the minimal number of services stations needed for the given town configuration
+        -:   17:*****************************************************************/
+        -:   18:
+        -:   19://------------
+        -:   20:// C++ includes
+        -:   21://------------
+        -:   22:#include <iostream>
+        -:   23:#include <fstream>
+        -:   24:#include <vector>
+        -:   25:
+        -:   26:/** --------------------------------------------------------------
+        -:   27:* DESCRIPTION - main
+        -:   28:* Accepts the input and computes the output
+        -:   29:* 
+        -:   30:* Sample Runs
+        -:   31:* -----------
+        -:   32:*
+        -:   33:* +++++++++++++++++++++++++++++
+        -:   34:* +Enter SS.cpp
+        -:   35:* +++++++++++++++++++++++++++++
+        -:   36:*
+        -:   37:* 3 2 1 2 2 3 0 0
+        -:   38:* 
+        -:   39:* 1
+        -:   40:* 
+        -:   41:* +++++++++++++++++++++++++++++
+        -:   42:* +Exit SS.cpp
+        -:   43:* +++++++++++++++++++++++++++++
+        -:   44:* 
+        -:   45:*CODE CORRECTNESS ARGUMENT
+        -:   46:*
+        -:   47:* CA01 by L01
+        -:   48:* CA02 by L02
+        -:   49:* CA03 by L03
+        -:   50:* CA04 by L04
+        -:   51:* CA05 by L05
+        -:   52:* CA06 by L06
+        -:   53:* CA07 by L07
+        -:   54:* CA08 by L08
+        -:   55:* CA09 by L09
+        -:   56:* CA10 by L10
+        -:   57:* CA11 by L11
+        -:   58:* CA12 by L12
+        -:   59:* CA13 by L13
+        -:   60:* CA14 by L14
+        -:   61:* CA15 by L15
+        -:   62:* CA16 by L16
+        -:   63:* CA17 by L17
+        -:   64:* CA18 by L18
+        -:   65:* CA19 by L19
+        -:   66:* CA20 by L20
+        -:   67:* CA21 by L21
+        -:   68:* CA22 by L22
+        -:   69:* CA23 by L23
+        -:   70:* CA24 by L24
+        -:   71:* CA25 by L25
+        -:   72:* CA26 by L26
+        -:   73:*
+        -:   74:* */
+        8:   75:int main() {
+        8:   76:/* L01 */int numTowns = 0;
+        8:   77:/* L01 */int numPairs = 0;
+        -:   78:/* L01 *//*std::string fileName;
+        -:   79:	     std::cout << "\n Please enter a file name: ";
+        -:   80:	     std::cin >> fileName;
+        -:   81:	     std::ifstream townFile(fileName);
+        -:   82:        //Read in file containing towns and their connections
+        -:   83:        townFile >> numTowns;
+        -:   84:	    townFile >> numPairs;
+        -:   85:       */
+        8:   86:/* L02 */std::cin >> numTowns;
+        8:   87:/* L03 */std::cin >> numPairs;
+        8:   88:        int townA = 0;
+        8:   89:	    int townB = 0;
+        -:   90:        //Keep track of which towns have a connection
+        8:   91:/* L04 */int serviceMatrix[numTowns + 1][numTowns + 1];
+        -:   92:        //set all values in the array = 0
+       40:   93:       	for(int i =0; i <= numTowns; i++){
+      160:   94:        	for(int j = 0; j <= numTowns; j++){
+      128:   95:        		serviceMatrix[i][j] = 0;
+        -:   96:   	    	}//for
+        -:   97:       	}//for
+        -:   98:       	//Populate the array
+       21:   99:        for(int i = 0; i < numPairs; i++){
+       13:  100:        	std::cin >> townA >> townB;
+       13:  101:           	if(townA == townB){
+    #####:  102:	       		serviceMatrix[townA][townB] = 0;
+        -:  103:	       	}else {
+       13:  104:	    		serviceMatrix[townA][townB] = 1;
+       13:  105:	        	serviceMatrix[townB][townA] = 1;
+        -:  106:	       	}//ifelse
+        -:  107:        }//for
+        -:  108:    	//townFile.close();
+        -:  109:	    //Keep track of which towns have access to a service station		
+        8:  110:/* L05 */bool serviced[numTowns + 1];
+       40:  111:        for(int i = 0; i <= numTowns; i++)
+       32:  112:	        serviced[i] = false;		
+        8:  113:        int serviceStationCount = 0;
+        -:  114:	    //Loop through each town in the file and see what it is connected to
+       14:  115:/* L06 */while (true){
+       22:  116:/* L07 */	int numLeft = 0;
+        -:  117:	    	//If all of the towns are serviced, break out of the loop
+       88:  118:/* L08 */	for(int i = 1; i <= numTowns; i++){
+       66:  119:/* L09 */		if(serviced[i] == 0){
+       31:  120:/* L10 */			numLeft++;
+        -:  121:		        }//if
+        -:  122:		    }//for
+       22:  123:/* L11 */	if (numLeft == 0) {
+        8:  124:			   break;
+        -:  125:		    }//if 
+        -:  126:		//Variable to keep track of what town currently has the greatest number of connections
+       14:  127:/* L12 */int townNumber = 0;
+        -:  128:		//Variable to keep track of the number of connections the town has
+       14:  129:/* L12 */int mostConnections = 0;
+       14:  130:/* L12 */int counter = 0;
+        -:  131:		//Increment a town's number of connections by 1 
+        -:  132:		// everytime it is seen in the loop
+       56:  133:/* L13 */for (int i = 1; i <= numTowns; i++){
+       42:  134:/* L14 */	if (serviced[i] == 0){
+      124:  135:/* L15 */		for (int j = 1; j <= numTowns; j++){
+       93:  136:/* L16 */			counter += serviceMatrix[i][j];
+       93:  137:/* L17 */			if (counter >= mostConnections){
+       74:  138:/* L18 */				townNumber = i;
+       74:  139:/* L19 */				mostConnections = counter;
+        -:  140:		    		}//if
+        -:  141:			    }//for
+       31:  142:/* L20 */	counter = 0;
+        -:  143:		    }//if
+        -:  144:		 }//for
+        -:  145:		//Set all towns connected to townNumber which holds the service station to true.
+        -:  146:		//Multiple towns may share the greatest number of connections, the town (or row) 
+        -:  147:    	// that will contain the station will be the town seen first in the array. 
+        -:  148:       	//If this town is not connected to the other town with the greatest connections, then it
+        -:  149:    	// will be caught in the next iteration and service stations will be added accordingly.
+       14:  150:/* L21 */serviced[townNumber] = true;
+       56:  151:/* L22 */for (int i = 1; i <= numTowns; i++ ){
+       42:  152:/* L23 */	if (serviceMatrix[townNumber][i] == 1){
+       10:  153:/* L24 */		serviced[i] = true;
+        -:  154:			}//if
+        -:  155:		}//for
+       14:  156:/* L25 */serviceStationCount++;
+        -:  157:	    }//while
+        8:  158:/* L26 */std::cout << serviceStationCount << "\n";
+       32:  159:}//main

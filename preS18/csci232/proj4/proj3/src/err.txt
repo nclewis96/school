@@ -1,0 +1,9 @@
+In file included from ListADT.h:69:0,
+                 from ListDriver.cpp:26:
+ListADT.cpp: In instantiation of 'Node<ItemType>* ListADT<ItemType>::getEntry(int) const [with ItemType = listItems]':
+ListDriver.cpp:71:1:   required from here
+ListADT.cpp:94:45: error: passing 'const ListADT<listItems>' as 'this' argument of 'Node<ItemType>* ListADT<ItemType>::getNodeAt(int) [with ItemType = listItems]' discards qualifiers [-fpermissive]
+ListADT.cpp: In instantiation of 'Node<ItemType>* ListADT<ItemType>::getEntry(int) const [with ItemType = std::basic_string<char>]':
+ListDriver.cpp:71:1:   required from here
+ListADT.cpp:94:45: error: passing 'const ListADT<std::basic_string<char> >' as 'this' argument of 'Node<ItemType>* ListADT<ItemType>::getNodeAt(int) [with ItemType = std::basic_string<char>]' discards qualifiers [-fpermissive]
+make: *** [ListDriver.o] Error 1

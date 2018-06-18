@@ -1,0 +1,5 @@
+<!-- Storage file for link tags required by AbOut -->
+
+<!-- replace STYLES_PATH to the path to your style sheets directory -->
+<link rel="stylesheet" type="text/css" href="{STYLES_PATH}reset.css" />
+<link rel="stylesheet" type="text/css" href="{STYLES_PATH}style.css" />

@@ -1,0 +1,180 @@
+%%
+% S16 CSCI 332 - Design and Analysis of Algorithms
+% Phillip J. Curtiss, Associate Professor
+% Computer Science Department, Montana Tech
+% Museum Buildings, Room 105
+%
+% Project-1: Weighted Directed Graph
+% Date Assigned: 2016-01-22
+% Date Due: 2016-02-05 by midnight
+%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=1in,letterpaper]{geometry}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+
+\newcounter{x}\setcounter{x}{1}
+\newtheorem{inneraxiom}{Axiom}
+\newenvironment{axiom}
+  {\renewcommand\theinneraxiom{\arabic{x}}\inneraxiom\stepcounter{x}}
+  {\endinneraxiom}
+
+%%
+% Running Header and Footer for Project
+\lhead{Project-1\\ S15 CSCI 332 - DAA}
+\chead{Weighted Directed Graph}
+\rhead{Assigned: 2016-01-22\\ Due: 2016-02-05 by midnight}
+\lfoot{Philip J. Curtiss, Assistant Professor\\Computer Science Department, Montana Tech}
+\cfoot{}
+\rfoot{Page~\thepage~of~\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%
+% Settings for the Listings Environment
+\lstset{language=C++}
+
+%%
+% Title Page Information
+\title{Project-1: Weighted Directed Graph\\
+	   S15 CSCI 332 - Design and Analysis of Algorithms}
+\author{Phillip J. Curtiss, Assistant Professor\\
+	    Computer Science Department, Montana Tech\\
+		Museum Building, Room 105}
+
+\begin{document}
+\pagestyle{fancy}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Project-1: Due 2016-02-5 by midnight}
+
+\paragraph{Purpose:} This assignment consists of two parts - implement the weighted digraph class and the graph test driver program.
+
+The WDiGraph class header file is supplied and contains basic graph ADT operations like create graph, destroy graph, copy graph, add edge, remove edge, check if an edge exists, get an edge weight, etc.  Most of these operations are left to you to complete. Specifically, graph methods you need to finish are the copy constructor, destructor, check if edge exists, add edge, get edge weight, and remove edge. Specifications for each are provided in the interface header file. Make sure you review the documentation that specifies the input, outputs, and exceptions. A UML diagram is also provided.
+
+A driver program to test the graph class has been started, which you need to be complete. You will add code so all menu options work properly and correctly handle all errors. A Makefile is supplied so you can easily compile your program. You will be expected to create makefiles for all your programs, so make sure you understand it.
+
+Javadoc style documentation is used throughout and should be used to document any code you add. When done, update the version to 1.0 and add your name to the author tag (or add a second @author tag with your name).  
+
+The WDiGraph will be used in future programming assignments. You should be familiar with key programming techniques you are expected to use good programming techniques learned in CSCI 232 for file I/O, error handling, exceptions, JavaDoc style documentation, makefiles, etc.
+
+You may create your own driver program, but please use the following numbers for the menu:
+
+\begin{enumerate}
+	\item Print the size of the graph
+	\item Check if an edge is in the graph
+	\item Insert an edge into the graph
+	\item Delete an edge from the graph
+	\item Retrieve an edge weight
+	\item Display a copy of the graph
+	\item Quit the program
+\end{enumerate}
+
+\paragraph{Objectives:} ~
+\begin{itemize}
+	\item Using UML Diagrams to Specify ADT
+	\item Using existing C++ class methods
+	\item Using Class Inheritence 
+	\item Understanidng Class Inheritence Relationships
+	\item Create methods that implement the WDiGraph ADTs
+	\item Manipulate Lists of Complex Data Types
+	\item Manipulate Linked List Structures
+	\item Work with Pointers in C++
+	\item Pass objects by reference
+	\item Use C++ source file standards and doxygen to generate documentation
+	\item Modify and add features to the provided main program
+\end{itemize}
+
+\begin{table}
+\caption{UML Specification for the Weighted DiGraph ADT} \label{uml:adtWDiGraph}
+\begin{lstlisting}
+	+getNumVertices(): int const
+	+getNumEdges(): int
+	+getNumberOfNodes(): integer
+	+edgeExists(u: int, v: int): bool
+	+getEdgeWeight(in u: int, in v: int): WtType
+	+add(in u: int, in v: int, in wt: WyType)
+	+remove(in u: int, in v: int)
+\end{lstlisting}
+\end{table}
+
+\paragraph{Obtaining the Project Files:} You will complete the project using your own user account on the department's linux system \verb|katie.mtech.edu|. You should ssh into your account, and execute the command \verb|mkdir -p csci332/proj1|. This will make the directory \verb|proj1| inside the directory \verb|csci332|, and also create the directory \verb|csci332| if it does not yet exist - which it may from any previous project sessions. You should then change the current working directory to proj1 by executing the command \verb|cd csci332/proj1|. You can test that you are in the correct current working directory by executing the command \verb|pwd| which should print something like \verb|/home/students/<username>/csci332/proj1|, where \verb|<username>| is replaced with the username associated with your account. Lastly, execute the command \verb|tar -xzvf ~curtiss/csci332/proj1.tgz| and this will expand the project files from the archive into your current working directory. You may consult \verb|man tar| to learn about the archive utility and its command line options. 
+
+\paragraph{Building the Project:} The project includes a  basic \verb|Makefile| you may use to generate the object  files from source code files. If you wisht to provide a test driver for your project, make sure to edit the Makefile as needed. Consult the \verb|Makefile| and understand the rules included and the dependencies and the rule sets that are used to generate the executable program. Use caution when updating the \verb|Makefile| to ensure rule sets make sense. 
+
+\paragraph{Helpful Reminders:} Study and pay close attention to the provided class(es) and methods. Understand their return types and use them in the code you author to provide robust code that can handle exceptions to inputs and boundary conditions. Look at all the code provided. Read the codes's comments and implement what is required where indicated. Make sure you are reusing code inside methods from inherited classes. Be cognizant of the {\em{}best practices we discussed in lecture and abide by good coding style - all of which will be factored into the assessment and grade for this project}. Be sure to review the UML diagram and the \verb|Makefile| and understand how files are being generated and their dependencies. 
+
+\paragraph{Submission of Project:} You have been provided a \verb|Makefile| for this project that will help you not only build your project, but also submit the project in the correct format for assessment and grading. Toward the bottom of the provided \verb|Makefile| you should see lines that look like:
+
+\begin{lstlisting}
+# Rule to submit programming assignments to graders
+# Make sure you modify the $(subj) $(msg) above and the list of attachment
+# files in the following rule - each file needs to be preceeded with an
+# -a flag as shown
+subj    = "CSCI332 DDA - Proj1"
+msg     = "Please review and grade my Project-3 Submission"
+submit:	listing-A1.cpp listing-A2.cpp
+	$(tar) $(USER)-proj1.tgz $?
+	echo $(msg) | $(mail) -s $(subj) -a $(USER)-proj1.tar.gz $(addr)
+\end{lstlisting}
+
+Make sure you update the dependencies on the \verb|submit:| line to ensure all the required files (source files) are included in the archive that gets created and then attached to your email for submission. You do not need to print out any of your program files - submitting them via email will date and time stamp them and we shall know they come from your account. If you submit multiple versions, we will use the latest version up to when the project is due. 
+
+\paragraph{Questions:} If you have any questions, please do not hesitate to get in contact with either Phil Curtiss (\verb|pjcurtiss@mtech.edu|) or Ross Moon (\verb|rmoon@mtech.edu|) at your convenicne, or stop by during office hours, and/or avail yourself of the time in the MUS lab when Ross is available. 
+
+\section*{Project File Manifest:}
+
+\subsection*{WDiGraph Header}
+
+\lstinputlisting{../src/WDiGraph.h}
+
+\noindent\hrulefill
+
+\subsection*{WDiGraph Implementation}
+
+\lstinputlisting{../src/WDiGraph.cpp}
+
+\noindent\hrulefill
+
+\subsubsection*{Graph Header}
+
+\lstinputlisting{../src/Graph.h}
+
+\noindent\hrulefill
+
+\subsubsection*{Graph Interface}
+
+\lstinputlisting{../src/GraphInterface.h}
+
+\noindent\hrulefill
+
+\subsubsection*{Custom Exception Classes}
+
+\lstinputlisting{../src/NotFoundException.h}
+
+\lstinputlisting{../src/NotFoundException.cpp}
+
+\lstinputlisting{../src/VertexOutOfRangeException.h}
+
+\noindent\hrulefill
+
+\subsubsection*{IO Functions}
+
+\lstinputlisting{../src/io_functions.h}
+
+\noindent\hrulefill
+
+\lstinputlisting{../src/io_functions.cpp}
+
+\noindent\hrulefill
+
+\subsection*{Makefile}
+
+\lstinputlisting{../src/Makefile}
+
+\end{document}
+

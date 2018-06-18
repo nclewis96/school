@@ -1,0 +1,67 @@
++++MirrorLNC Test Run+++
+Testing the file MirrorLNC.cpp against MirrorNKL.cpp
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT1.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT10.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT11.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT12.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT13.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT14.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT15.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT16.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT17.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT18.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT19.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT2.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT20.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT3.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT4.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT5.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT6.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT7.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT8.txt	Passed
+
+-----------------------------------------
+Input File:	mirrorRandomTestsLNC/mirrorLNCT9.txt	Passed
+
+-----------------------------------------
+All tests passed
+
+---MirrorLNC Test Run---

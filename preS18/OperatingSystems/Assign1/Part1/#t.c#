@@ -1,0 +1,25 @@
+int prints(char *s)
+{
+	//standard in and file buffer
+ `
+    putc(s);
+}
+
+int gets(char s[ ])
+{
+	//get standard in, give it to s
+    getc() ;
+}
+
+main()
+{
+   char name[64];
+   while(1){
+     prints("What's your name? ");
+     gets(name);
+     if (name[0]==0)
+        break;
+     prints("Welcome "); prints(name); prints("\n\r");
+   }
+   prints("return to assembly and hang\n\r");
+}

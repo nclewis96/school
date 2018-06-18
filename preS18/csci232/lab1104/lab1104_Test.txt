@@ -1,0 +1,33 @@
+Name: 			Nathaniel Lewis
+Name on Katie: 	nlewis
+Date: 			11/6/15
+
+Files are located in nlewis/csci232/lab1104
+
+Executable is - lab1104
+
+I don't know why my Concatenation doesn't work.
+The Output is as follows:
+
+Is L1 equal to L2? 1
+------------------------------------------
+ Is L1 equal to L3? 0
+------------------------------------------
+ Is L2 equal to L3? 0
+------------------------------------------
+ Is L3 equal to L3? 1
+------------------------------------------
+
+L1 contains: 
+1	Fubar
+2	World
+3	Hello
+
+
+L2 contains: 
+1	Fubar
+2	World
+3	Hello
+
+
+L3 contains: 

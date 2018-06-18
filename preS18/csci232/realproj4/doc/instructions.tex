@@ -1,0 +1,175 @@
+%%
+% F15 CSCI 232 - Data Structures and Algorithms
+% Phillip J. Curtiss, Associate Professor
+% Computer Science Department, Montana Tech
+% Museum Buildings, Room 105
+%
+% Project-4: Sorted Lists as Inherited LinkedList
+% Date Assigned: 2015-11-16
+% Date Due: 2015-11-30 by midnight
+%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=1in,letterpaper]{geometry}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+
+\newcounter{x}\setcounter{x}{1}
+\newtheorem{inneraxiom}{Axiom}
+\newenvironment{axiom}
+  {\renewcommand\theinneraxiom{\arabic{x}}\inneraxiom\stepcounter{x}}
+  {\endinneraxiom}
+
+%%
+% Running Header and Footer for Project
+\lhead{Project-4\\ F15 CSCI 232 - DSA}
+\chead{Derived Sorted Lists}
+\rhead{Assigned: 2015-11-16\\ Due: 2015-11-30 by midnight}
+\lfoot{Philip J. Curtiss, Assistant Professor\\Computer Science Department, Montana Tech}
+\cfoot{}
+\rfoot{Page~\thepage~of~\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%
+% Settings for the Listings Environment
+\lstset{language=C++}
+
+%%
+% Title Page Information
+\title{Project-4: Derived Sorted Lists \\
+	   F15 CSCI 232 - Data Structures and Algorithms}
+\author{Phillip J. Curtiss, Assistant Professor\\
+	    Computer Science Department, Montana Tech\\
+		Museum Building, Room 105}
+
+\begin{document}
+\pagestyle{fancy}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Project-4: Due 2015-11-30 by midnight}
+
+\paragraph{Purpose:} The sorted list ADT can be viewed as a specialized form of the ListADT. Rewrite the ListADT to form an AS-IS relationship with a new class you are to write, SortedListADT. Implement an Interface for the SortedListADT based on the UML specification below. You are provided the full implementation of ListADT, including the overloading of the \verb|operator==| and the \verb|operator+| - you may need to override other operators, or even these operators, within the SortedListADT. 
+
+\paragraph{Objectives:} ~
+\begin{itemize}
+	\item Using UML Diagrams to Specify ADT
+	\item Using existing C++ class methods
+	\item Using Class Inheritence 
+	\item Understanidng Class Inheritence Relationships
+	\item Create methods that implement the SortList ADT
+	\item Manipulate Lists of Complex Data Types
+	\item Manipulate Linked List Structures
+	\item Work with Pointers in C++
+	\item Overriding operators within Classes
+	\item Pass objects by reference
+	\item Use C++ source file standards and doxygen to generate documentation
+	\item Modify and add features to the provided main program
+\end{itemize}
+
+\begin{table}
+\caption{UML Specification for the sortedList ADT} \label{uml:adtList}
+\begin{lstlisting}
+	+isEmpty(): boolean
+	+getLength(): integer
+	+insertSorted(newEntry: ItemType): void
+	+removeSorted(entry: ItemType): boolean
+	+remove(position: integer): boolean
+	+clear(): void
+	+getEntry(position: integer): ItemType
+	+getPosition(entry: ItemType): integer
+	+contains(entry: ItemType): boolean
+	+loadList(string: filename): boolean
+	+displayList(): void
+\end{lstlisting}
+\end{table}
+
+\paragraph{Obtaining the Project Files:} You will complete the project using your own user account on the department's linux system \verb|katie.mtech.edu|. You should ssh into your account, and execute the command \verb|mkdir -p csci232/proj4|. This will make the directory \verb|proj4| inside the directory \verb|csci232|, and also create the directory \verb|csci232| if it does not yet exist - which it should from our previous lab and project sessions. You should then change the current working directory to proj4 by executing the command \verb|cd csci232/proj4|. You can test that you are in the correct current working directory by executing the command \verb|pwd| which should print something like \verb|/home/students/<username>/csci232/proj4|, where \verb|<username>| is replaced with the username associated with your account. Lastly, execute the command \verb|tar -xzvf ~curtiss/csci232/proj4.tgz| and this will expand the project files from the archive into your current working directory. You may consult \verb|man tar| to learn about the archive utility and its command line options. 
+
+\paragraph{Project Function:}  
+
+Your classes will be used with a driver program we will provide for testing. This driver program will instantiate multiple instances of your SortedListADT class. It will then populate these instances with items of different fundamental types - such as ints, strings, etc. The program will then use the \verb|operator<<| to display the output of the SortedListADT objects and will use the \verb|operator==| to compare multiple instances of the SortedListADT to determine if the objects are identical. Lastly, it will use the \verb|operator+| to create and/or expand objects of SortedListADT.
+
+The driver program will use different input files of varying lengths to accomplish these tests. Your classes should make no assumptions about the fundamental ItemTypes used by the driver program, the number of instances of your SortedListADT created by the driver program, now the length of any given instance of your SortedListADT.
+
+\paragraph{Building the Project:} The project includes a \verb|Makefile| you may use to generate the object  files from source code files. If you wisht to provide a test driver for your project, make sure to edit the Makefile as needed. Consult the \verb|Makefile| and understand the rules included and the dependencies and the rule sets that are used to generate the executable program. Use caution when updating the \verb|Makefile| to ensure rule sets make sense. 
+
+\paragraph{Helpful Reminders:} Study and pay close attention to the provided class(es) and methods. Understand their return types and use them in the code you author to provide robust code that can handle exceptions to inputs and boundary conditions. Look at all the code provided. Read the codes's comments and implement what is required where indicated. Make sure you are reusing code inside methods from inherited classes. Be cognizant of the {\em{}best practices we discussed in lecture and abide by good coding style - all of which will be factored into the assessment and grade for this project}. Be sure to review the UML diagram and the \verb|Makefile| and understand how files are being generated and their dependencies. 
+
+\paragraph{Submission of Project:} You have been provided a \verb|Makefile| for this project that will help you not only build your project, but also submit the project in the correct format for assessment and grading. Toward the bottom of the provided \verb|Makefile| you should see lines that look like:
+
+\begin{lstlisting}
+# Rule to submit programming assignments to graders
+# Make sure you modify the $(subj) $(msg) above and the list of attachment
+# files in the following rule - each file needs to be preceeded with an
+# -a flag as shown
+subj    = "CSCI232 DSA - Proj4"
+msg     = "Please review and grade my Project-3 Submission"
+submit:	listing-A1.cpp listing-A2.cpp
+	$(tar) $(USER)-proj4.tgz $?
+	echo $(msg) | $(mail) -s $(subj) -a $(USER)-proj4.tar.gz $(addr)
+\end{lstlisting}
+
+Make sure you update the dependencies on the \verb|submit:| line to ensure all the required files (source files) are included in the archive that gets created and then attached to your email for submission. You do not need to print out any of your program files - submitting them via email will date and time stamp them and we shall know they come from your account. If you submit multiple versions, we will use the latest version up to when the project is due. 
+
+\paragraph{Questions:} If you have any questions, please do not hesitate to get in contact with either Phil Curtiss (\verb|pjcurtiss@mtech.edu|) or Ross Moon (\verb|rmoon@mtech.edu|) at your convenicne, or stop by during office hours, and/or avail yourself of the time in the MUS lab when Ross is available. 
+
+\section*{Project File Manifest:}
+
+\subsection*{Sorted List Interface}
+
+\lstinputlisting{../src/SortedListInterface.h}
+
+\subsection*{Sorted List Header}
+
+\lstinputlisting{../src/SortedListADT.h}
+
+\subsection*{Sorted List Implementation}
+
+\lstinputlisting{../src/SortedListADT.cpp}
+
+\subsection*{List Interface}
+
+\lstinputlisting{../src/ListInterface.h}
+
+\noindent\hrulefill
+
+\subsection*{List Main Driver}
+
+\lstinputlisting{../src/ClientDriver.cpp}
+
+\noindent\hrulefill
+
+\subsubsection*{ListNode Header}
+
+\lstinputlisting{../src/ListNode.h}
+
+\noindent\hrulefill
+
+\subsubsection*{ListNode Implementation}
+
+\lstinputlisting{../src/ListNode.cpp}
+
+\noindent\hrulefill
+
+\subsubsection*{ListADT Header}
+
+\lstinputlisting{../src/ListADT.h}
+
+\noindent\hrulefill
+
+\subsubsection*{ListADT Implementation}
+
+\lstinputlisting{../src/ListADT.cpp}
+
+\noindent\hrulefill
+
+\subsection*{Makefile}
+
+\lstinputlisting{../src/Makefile}
+
+\end{document}
+

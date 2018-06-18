@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Part1
+Comment=
+Exec=qemu -fda mtximage -no-fd-bootchk
+Icon=
+Path=/home/students/nlewis/CSCI460/Assign1/Part1
+Terminal=false
+StartupNotify=false

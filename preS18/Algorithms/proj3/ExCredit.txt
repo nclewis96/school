@@ -1,0 +1,34 @@
+Nathaniel Lewis
+Project 3 Extra Credit
+CSCI332
+
+1) The efficiency of the Brute force hull is O(n^3), because it uses 3 different for loops 
+that move through all points in the vector.
+1000 0.161118 : 2000 0.55781 : 4000 2.4277 : 8000 13.0866 : 16000 67.9779
+
+2) The efficiency of my Graham Scan Algorithm is O(n). When the number of points doubles, 
+so does the execution time.
+1000 0.00153415: 2000 0.00333446: 4000 0.00715492 : 8000 0.0152003 : 16000 0.0313872: 32000 0.0662931
+
+3) My algorithm's performance is slightly slower than the efficiency class, this is probably 
+because of the overhead of the different comparators in the algorithm. Another cause could 
+be related to other traffic on the server.
+
+
+4) I used a vector to implement PointSet because it is a flexible data type that can 
+take in as many points as you want, and still be able to be implemented in the algorithm.
+Other advantages of using a vector is that it has many built in functions that make the 
+implementation of the algorithm easier than using a data type with fewer built in functions.
+You can also access any point in the vector without removing all other points, which is not
+possible in a stack or queue.
+
+5) See additional email.
+
+
+6) If we had used Open MP, we could have split the for loops used in both methods into 
+several different threads that check to see if multiple points are on the hull at the same
+time. The speedup depends on the number of threads implemented and the number of processors
+that the compiling machine has. Since we are using the Katie server, the speed up should be
+around 12x as fast.
+
+

@@ -1,0 +1,30 @@
++++ServiceStationLNC Test Run+++
+Testing the file serviceStationLNC.cpp
+
+Input File: unit_tests/ssIn01.txt   Output File: unit_tests/ssOut01.txt
+FAILED
+
+Input File: unit_tests/ssIn02.txt   Output File: unit_tests/ssOut02.txt
+FAILED
+
+Input File: unit_tests/ssIn03.txt   Output File: unit_tests/ssOut03.txt
+FAILED
+
+Input File: unit_tests/ssIn04.txt   Output File: unit_tests/ssOut04.txt
+FAILED
+
+Input File: unit_tests/ssIn05.txt   Output File: unit_tests/ssOut05.txt
+FAILED
+
+Input File: unit_tests/ssIn06.txt   Output File: unit_tests/ssOut06.txt
+FAILED
+
+Input File: unit_tests/ssIn07.txt   Output File: unit_tests/ssOut07.txt
+FAILED
+
+Input File: unit_tests/ssIn08.txt   Output File: unit_tests/ssOut08.txt
+FAILED
+
+8 test cases FAILED
+
+---ServiceStationLNC Test Run---

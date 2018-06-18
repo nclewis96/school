@@ -1,0 +1,1 @@
+Pattern 1 was reflected vertically and rotated 180 degrees.

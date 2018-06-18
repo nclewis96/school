@@ -1,0 +1,3 @@
+To run PHPUnit tests:
+$ chmod +x ./test.sh
+$ ./test.sh

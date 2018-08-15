@@ -1,0 +1,25 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+  <div>
+    Program:
+    {{one-way-select
+      data.programId
+      options=programList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.programId))
+    }}
+  </div>
+
+  {{lf-input
+    label="Name: "
+    property=data.name
+    name="name"
+    validate=validateFunction
+    on-update=(action (mut data.name))
+  }}
+
+{{/lf-form}}
+
+
+{{yield data}}

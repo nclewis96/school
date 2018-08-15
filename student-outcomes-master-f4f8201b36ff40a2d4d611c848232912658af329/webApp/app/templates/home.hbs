@@ -1,0 +1,76 @@
+{{! Display user related navigation info, roles, or other various non-main content features.}}
+<div id="home-route">
+  <div id="admin" class="info">
+    <h2>Admin</h2>
+    <table>
+      <tr>
+        <th>Users:</th>
+        <td>Add and edit Users, may delete a User if no data is associated with them.</td>
+      </tr>
+      <tr>
+        <th>Courses:</th>
+        <td>Add and edit Courses, may delete a Course if no data is associated with it.</td>
+      </tr>
+      <tr>
+        <th>Outcomes:</th>
+        <td>Add and edit Outcomes, may delete an Outcome if no data is associated with it.</td>
+      </tr>
+      <tr>
+        <th>Students:</th>
+        <td>Add and edit Students, may delete a Student.</td>
+      </tr>
+    </table>
+  </div>
+  <div id="program-coordinator" class="info">
+    <h2>Program Coordinator</h2>
+    <table>
+      <tr>
+        <th>Courses:</th>
+        <td>Add and edit Courses, may delete a Course if no data is associated with it.</td>
+      </tr>
+      <tr>
+        <th>Outcomes:</th>
+        <td>Add and edit Outcomes, may delete an Outcome if no data is associated with it.</td>
+      </tr>
+      <tr>
+        <th>Assessments:</th>
+        <td>Add and edit Assessments, may delete an Assessment if no data is associated with it.</td>
+      </tr>
+      <tr>
+        <th>Instructors:</th>
+        <td>Add and edit instructors to Offerings.</td>
+      </tr>
+    </table>
+  </div>
+  <div id="faculty" class="info">
+    <h2>Faculty</h2>
+    <table>
+      <tr>
+        <th>Courses:</th>
+        <td>View and edit information associated with Offerings that you are the instructor for.</td>
+      </tr>
+      <tr>
+        <th>Metrics:</th>
+        <td>Add and edit Metrics/Assessments/Assignments, may delete a Metric if no data is associated with it.</td>
+      </tr>
+      <tr>
+        <th>Students:</th>
+        <td>Add Students to an Offering or edit existing Students in an Offering. may delete a Student.</td>
+      </tr>
+    </table>
+  </div>
+  <div id="observer" class="info">
+    <h2>Observer</h2>
+    <table>
+      <tr>
+        <th>Courses:</th>
+        <td>View Courses and their Offerings without student data present.</td>
+      </tr>
+      <tr>
+        <th>Outcomes:</th>
+        <td>View Outcomes and the Courses they are associated with.</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{{outlet}}

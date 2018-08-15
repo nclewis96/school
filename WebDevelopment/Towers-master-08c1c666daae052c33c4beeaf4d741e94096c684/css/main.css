@@ -1,0 +1,154 @@
+/*
+ * S18 CSCI470 Web Science
+ * Single Page Web App Towers of Hanoi
+ *
+ * Phillip J. Curtiss, Assistant Professor
+ * Department of Computer Science, Montana Tech
+ * (c) 2018 All Rights Reserved
+ */
+
+
+/*
+  * Position header at the top of the browser window
+  * set the width to be the size of the browser
+  * set height to be a fixed and adequate height
+  * add some padding and color
+  */
+
+header {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width: 100%;
+    height: 75px;
+    margin: 0px;
+    padding: 15px;
+    background: darkGreen;
+    color: white;
+}
+
+
+/*
+ * Position the footer at the bottom of the browser window
+ * set the width to be the size of the browser 
+ * set the padding and color
+ */
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 15px;
+    background: rgb(139, 38, 38);
+    color: rgba(255, 255, 0, 0.644);
+}
+
+
+/*
+ * Align the copyright span to the right edge of the footer
+ */
+
+footer #copyright {
+    position: fixed;
+    right: 25px;
+}
+
+
+/*
+ * Adjust top margin for the bottom to accommodate the header
+ * so page content doesn't flow under the header
+ */
+
+body {
+    margin-top: 95px;
+}
+
+#reset {
+	margin:200px;
+	justify-content: center;
+	position: fixed;
+	border: 3px solid;
+	background: rgb(180, 180, 210);
+}
+
+/*
+ * Main game div
+ * fix its position relative to its enclosing container
+ * layout a grid for the game pegs
+ * set alignment
+ * set background colors
+ */
+
+#towers {
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    border: 1px solid;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 150px 150px 150px;
+    justify-content: center;
+    align-content: end;
+    width: 525px;
+    background: rgb(116, 116, 126);
+}
+
+
+/*
+ * The stacks are pegs in the game and hold the blocks
+ * Set their size and background color
+ */
+
+[data-stack] {
+    width: 150px;
+    height: 200px;
+    background: lightBlue;
+	display:flex;
+	flex-direction: column-reverse;
+
+}
+
+
+/*
+ * Data blocks are the blocks that the user can drag and drop
+ * and stack on one another
+ * set their position relative to the container
+ */
+
+[data-block] {
+    margin:auto;
+    position: relative;
+    height: 25px;
+}
+
+
+/*
+ * For each data block 
+ * set the size and the color
+ */
+
+[data-block="100"] {
+    width: 100px;
+	margin: 0px auto;
+    background-color: yellow;
+}
+
+[data-block="75"] {
+    width: 75px;
+	margin: 0px auto;
+    background-color: red;
+}
+
+[data-block="50"] {
+    width: 50px;
+	margin: 0px auto;
+    background-color: green;
+}
+
+[data-block="25"] {
+    width: 25px;
+	margin: 0px auto;
+    background-color: blue;
+}

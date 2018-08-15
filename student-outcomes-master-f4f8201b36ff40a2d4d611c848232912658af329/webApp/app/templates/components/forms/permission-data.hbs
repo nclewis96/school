@@ -1,0 +1,39 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+  <div>
+    User:
+    {{one-way-select
+      data.userId
+      options=userList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.userId))
+    }}
+  </div>
+
+  <div>
+    Permission:
+    {{one-way-select
+      data.permissionId
+      options=courseList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.permissionId))
+    }}
+  </div>
+
+  <div>
+    Program:
+    {{one-way-select
+      data.programId
+      options=programList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.programId))
+    }}
+  </div>
+
+{{/lf-form}}
+
+
+{{yield data}}

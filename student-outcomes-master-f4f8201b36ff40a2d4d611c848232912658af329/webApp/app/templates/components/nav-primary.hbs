@@ -1,0 +1,13 @@
+<div id="home-button">
+	{{#link-to "home"}}Home{{/link-to}}
+</div>
+<div class="nav-horizontal">
+	{{#each items as |role|}}
+		<div class="li-horizontal">
+			{{#link-to (to-lowercase role.roleName)}}
+				{{role.roleName}}
+			{{/link-to}}
+		</div>
+	{{/each}}
+</div>
+{{yield}}

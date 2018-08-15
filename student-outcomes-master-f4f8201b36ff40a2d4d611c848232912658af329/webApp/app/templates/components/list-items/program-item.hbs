@@ -1,0 +1,5 @@
+{{#each programs as |program|}}
+  {{log program}}
+  <li>{{program.name}}</li>
+  {{yield program}}
+{{/each}}

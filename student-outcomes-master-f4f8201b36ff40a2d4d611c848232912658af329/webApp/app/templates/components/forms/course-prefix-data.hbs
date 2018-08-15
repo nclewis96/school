@@ -1,0 +1,28 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+
+  {{lf-input
+    name="prefix"
+    label="Prefix:"
+    property=data.prefix
+    validate=validateFunction
+    on-update=(action (mut data.prefix))
+  }}
+
+  <div>
+    Courses:
+    {{#each data.courses as |course|}}
+      {{one-way-select
+        course.id
+        options=courseList
+        optionValuePath="id"
+        optionLabelPath="name"
+        update=(action (mut course.id))
+      }}
+    {{/each}}
+  </div>
+
+{{/lf-form}}
+
+
+{{yield data}}

@@ -1,0 +1,60 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+  <div>
+    Offering:
+    {{one-way-select
+      data.offeringId
+      options=offeringList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.offeringId))
+    }}
+  </div>
+
+  <div>
+    Scale:
+    {{one-way-select
+      data.scaleId
+      options=scaleList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.scaleId))
+    }}
+  </div>
+
+  {{lf-input
+    name="name"
+    label="Name:"
+    property=data.name
+    validate=validateFunction
+    on-update=(action (mut data.name))
+  }}
+
+  {{lf-input
+    name="desc"
+    label="Description: "
+    property=data.desc
+    validate=validateFunction
+    on-update=(action (mut data.desc))
+  }}
+
+  {{lf-input
+    name="score"
+    label="score: "
+    property=data.score
+    validate=validateFunction
+    on-update=(action (mut data.score))
+  }}
+
+  {{lf-input
+    name="maxScore"
+    label="Max Score: "
+    property=data.maxScore
+    validate=validateFunction
+    on-update=(action (mut data.maxScore))
+  }}
+
+{{/lf-form}}
+
+
+{{yield data}}

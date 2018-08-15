@@ -1,0 +1,26 @@
+<div id="header-div">
+<header>
+	<img class="MTechLogo" src="assets/logo/MTechShieldLogo.png" alt="Mtech Logo">
+  <br>
+	<h1>StOut</h1>
+  <div id="login-button">
+    {{#link-to "secret"}}
+      Welcome: Jesse Anderson
+    {{/link-to}}
+  </div>
+</header>
+
+{{! Nav component given user}}
+{{nav-primary items=model.roles}}
+</div>
+
+{{outlet}}
+
+<footer>
+	<div id="home-button">
+		{{#link-to "home"}}Home{{/link-to}}
+	</div>
+  <h1>StOut</h1>
+	<img class="MTechLogo" src="assets/logo/MTechShieldLogo.png" alt="Mtech Logo">
+
+</footer>

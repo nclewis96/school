@@ -1,0 +1,27 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+  {{lf-input
+    name="title"
+    label="Title:"
+    property=data.title
+    validate=validateFunction
+    on-update=(action (mut data.title))
+  }}
+
+  <div>
+    Users:
+    {{#each data.users as |user|}}
+      {{one-way-select
+        user.id
+        options=userList
+        optionValuePath="id"
+        optionLabelPath="name"
+        update=(action (mut user.id))
+      }}
+    {{/each}}
+  </div>
+
+{{/lf-form}}
+
+
+{{yield data}}

@@ -1,0 +1,41 @@
+image: trevorlbrooks/stoutpipeline 
+cache:
+    paths:
+      - webApp/node_modules/    
+      - ~/.m2/repository/
+stages:
+  - test
+
+# Set any variables we need
+variables:
+    # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
+    MYSQL_DATABASE: Stout
+    MYSQL_ROOT_PASSWORD: mysql
+
+backend:
+    image: maven:latest
+    stage: test
+    services:
+      - mysql:5.7
+    tags:
+        -  test
+    before_script:
+        - cd backend/stout
+        - mvn clean install
+    script:
+        - mvn test 
+    after_script:
+        - cd ..
+frontend:
+    stage: test
+    tags:
+        - gl-runner-vm
+    before_script: 
+      - cd webApp
+      - npm install bower phantomjs-prebuilt 
+      - npm install
+      - bower install --allow-root
+    script:
+      - npm test
+    after_script: 
+      - cd ..

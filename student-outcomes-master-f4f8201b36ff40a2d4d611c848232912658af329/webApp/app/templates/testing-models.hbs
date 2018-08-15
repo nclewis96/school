@@ -1,0 +1,68 @@
+{{nameStuff}}
+<button {{action 'addOffering'}}>
+	Add Offering
+</button>
+<button {{action 'addUser'}}>
+	Add User
+</button>
+  {{#forms/program-cutoff-data data=programCutoff as |data|}}
+    <button {{action 'submitRecord' data}}> Submit </button>
+    <button {{action 'deleteRecord' data}}> Delete </button>
+  {{/forms/program-cutoff-data}}
+  {{#each model.offerings key='id' as |offering|}}
+    {{#forms/offering-data data=offering as |data|}}
+      <button {{action 'submitRecord' data}}> Submit </button>
+      <button {{action 'deleteRecord' data}}> Delete </button>
+    {{/forms/offering-data}}
+  {{/each}}
+  {{#forms/offering-data data=model.offering as |data|}}
+    <button {{action 'submitRecord' data}}> Submit </button>
+  {{/forms/offering-data}}
+
+  {{#each model.users key='id' as |user|}}
+    {{#forms/user-data data=user as |data|}}
+      <button {{action 'submitRecord' data}}> Submit </button>
+    {{/forms/user-data}}
+  {{/each}}
+
+  {{#forms/user-data data=model.user as |data|}}
+    <button {{action 'submitRecord' data}}> Submit </button>
+  {{/forms/user-data}}
+
+  {{#each model.courses as |course|}}
+    {{#forms/course-data data=course as |data|}}
+      <button {{action 'submitRecord' data}}> Submit </button>
+      <button {{action 'deleteRecord' data}}> Delete </button>
+    {{/forms/course-data}}
+  {{/each}}
+
+  {{#each model.outcomes as |outcome|}}
+    <div> {{outcome.metricId.programId.name}} </div>
+  {{/each}}
+
+  {{#each model.metrics as |metric|}}
+    <div> {{metric.programId.name}}</div>
+  {{/each}}
+
+  {{#each model.semesters as |semester|}}
+    {{#forms/semester-data data=semester as |data|}}
+      <button {{action 'submitRecord' data}}> Submit </button>
+      <button {{action 'deleteRecord' data}}> Delete </button>
+    {{/forms/semester-data}}
+  {{/each}}
+
+  {{#each offeringsQueried as |offering|}}
+    {{#forms/offering-data data=offering as |data|}}
+      <button {{action 'submitRecord' data}}> Submit </button>
+      <button {{action 'deleteRecord' data}}> Delete </button>
+    {{/forms/offering-data}}
+  {{/each}}
+
+  {{#each model.programCutoffs as |cutoff|}}
+    {{#forms/program-cutoff-data data=cutoff as |data|}}
+      <button {{action 'submitRecord' data}}> Submit </button>
+      <button {{action 'deleteRecord' data}}> Delete </button>
+    {{/forms/program-cutoff-data}}
+  {{/each}}
+
+{{outlet}}

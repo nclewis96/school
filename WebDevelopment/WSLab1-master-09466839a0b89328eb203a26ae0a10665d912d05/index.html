@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- 
+    S18 CSCI470 Web Science
+    Single Page Web App Example
+
+    Phillip J. Curtiss, Assistant Professor
+    Department of Computer Science, Montana Tech
+    pcurtiss@mtech.edu, 406-496-4807
+    (c) 2018 All Rights Reserved
+-->
+<html lang="en-US">
+<!-- Root Document Element; sets default lang for Document -->
+
+<head>
+    <title>S18 CSCI470 Web Science: Single Page Web App</title>
+    <!-- defined metadata names -->
+    <meta charset="utf-8">
+    <meta name="application-name" content="HTML5 Drawing Canvas">
+    <meta name="descrption" content="Allows the user to draw using the mouse on a web page canvas">
+    <meta name="author" content="Phil Curtiss">
+    <meta name="keywords" content="SWPA, SPA, application, html5, example">
+    <!-- Responsive Elements; registered metadata names -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to External Style Sheets -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header id="header" role="banner">
+        <h1>HTML Drawing Canvas Example</h1>
+
+        <nav id="controlPanel" role="navigation">
+            <!-- Place Control Buttons here to Triffer Behaviors -->
+            <input id="clearButton" type="button" value="Clear">
+			<input id="colorButton" type="button" value="Change Color">
+			<input id="eraseButton" type="button" value="Eraser">
+			<input id="sizeButton" type="button" value="Change Size">
+        </nav>
+    </header>
+
+    <article id="main" role="main">
+        <!-- Holds the Canvas Element used to draw strokes from end-user behaviors -->
+        <canvas id="scribbleArea" width="500px" height="300px">
+        </canvas>
+    </article>
+
+    <footer id="footer" role="contentinfo">
+        <p>&copy; 2018 Department of Computer Science, Montana Tech</p>
+    </footer>
+
+    <!-- Application Behaviors -->
+    <script src="js/main.js">
+    </script>
+</body>
+
+</html>

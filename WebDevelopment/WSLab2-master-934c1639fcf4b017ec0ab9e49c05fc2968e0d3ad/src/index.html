@@ -1,0 +1,84 @@
+<!doctype html>
+<!--
+    S18 CSCI470 Web Science
+    Single Page Web App in Browser: Calculator
+
+    Phillip J. Curtiss, Assistant Professor
+    Department of Computer Sceince, Montana Tech
+    pcurtiss@mtech.edu, 406-496-4807
+    (c) 2018 All Rigths Reserved
+ -->
+<html lang="en-US">
+
+<head>
+    <title>Simple Calculator</title>
+    <!-- defined metadata names -->
+    <meta charset="utf-8">
+    <meta name="application-name" content="HTML5 Basic Calculator">
+    <meta name="description" content="Basic 9-key calculator">
+    <meta name="author" content="Phil CurtisS">
+    <meta name="keywords" content="SPWA, SPA, application, html5, calculator">
+    <!-- Responsive Elements; registered metadata names -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to External Style Sheets -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<label>Calculator Color</label>
+	<select id=BackColor>
+		<option value="lightGray">lightGray</option>
+		<option value="Blue">Blue</option>
+		<option value="Red">Red</option>
+		<option value="Green">Green</option>
+		<option value="Purple">Purple</option>
+	</select>
+	<label>Text Color</label>
+	<select id=TextColor>
+		<option value="Blue">Blue</option>
+		<option value="Black">Black</option>
+		<option value="Red">Red</option>
+		<option value="Green">Green</option>
+		<option value="Purple">Purple</option>
+	</select>
+	
+    <div id="calculator">
+        <div id="top">
+            <span id="clear">C</span>
+            <span id="display"></span>
+        </div>
+        <div id="keys">
+			<span class = "specialOperator">x^2</span>
+			<span class = "specialOperator">sqrt(x)</span>
+			<span class = "specialOperator">1/x</span>
+			<span class = "operator">e^x</span>
+			
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span class="operator">+</span>
+
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span class="operator">-</span>
+
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span class="operator">/</span>
+
+            <span>0</span>
+            <span>.</span>
+            <span class="eval">=</span>
+            <span class="operator">*</span>
+        </div>
+    </div>
+    <div id="tape">
+		<span id="ticker"></span>
+	</div>	
+    <!-- Application Behaviors -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

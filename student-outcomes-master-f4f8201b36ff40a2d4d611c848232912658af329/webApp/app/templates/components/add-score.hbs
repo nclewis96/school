@@ -1,0 +1,66 @@
+<h4>This is a register form</h4>
+
+{{#lf-form rules=rules 
+	onSubmit=(action "submit")
+	as |validate isValid|}}
+
+{{lf-input
+
+	name="offering_id"
+	label="Offering id"
+	property=model.offering_id
+	on-update=(action (mut model.offering_id))
+	validate=validate
+}}
+
+{{lf-input
+    label="Outcome id"
+    name="oucome_id"
+    property=model.outcom_id
+    on-update=(action (mut model.outcome_id))
+    validate=validate
+  }}
+
+{{lf-input
+    label="Student id"
+    name="student_id"
+    property=model.student_id
+    on-update=(action (mut model.student_id))
+    validate=validate
+  }}
+
+
+{{lf-input
+    label="Score"
+    name="score"
+    property=model.score
+    on-update=(action (mut model.score))
+    validate=validate
+  }}
+
+
+
+<button class="btn btn-primary">
+	Register
+</button>
+
+{{#if saved}}
+<div class="alert alert-info">
+	Done 
+
+</div>
+
+{{/if}}
+
+
+
+
+
+
+
+{{/lf-form}}
+
+
+
+
+{{yield}}

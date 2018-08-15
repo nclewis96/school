@@ -1,0 +1,47 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+  <div>
+    Program:
+    {{one-way-select
+      data.programId
+      options=programList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.programId))
+    }}
+  </div>
+
+  <div>
+    Prefix:
+    {{one-way-select
+      data.prefixId
+      options=prefixList
+      optionValuePath="id"
+      optionLabelPath="prefix"
+      update=(action (mut data.prefixId))
+    }}
+  </div>
+
+  {{lf-input
+    name="title"
+    label="Course Title:"
+    property=data.title
+    validate=validateFunction
+    on-update=(action (mut data.title))
+  }}
+
+  {{lf-input
+
+    name="courseNum"
+    label="Course Number: "
+    property=data.courseNum
+    validate=validateFunction
+    on-update=(action (mut data.courseNum))
+  }}
+
+
+
+{{/lf-form}}
+
+
+{{yield data}}

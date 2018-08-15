@@ -1,0 +1,30 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+  <div>
+    Starting Month:
+    {{one-way-select
+      data.typeId
+      options=semesterTypeList
+      optionValuePath="id"
+      optionLabelPath="startMonth"
+      update=(action (mut data.typeId))
+    }}
+  </div>
+
+  {{lf-input
+
+    label="Year: "
+    property=data.year
+    name="year"
+    validate=validateFunction
+    on-update=(action (mut data.year))
+  }}
+
+  {{#each data.programCutoffs as |cutoff|}}
+
+  {{/each}}
+
+{{/lf-form}}
+
+
+{{yield data}}

@@ -1,0 +1,9 @@
+{{#each items.actionList as |role|}}
+    <div class="li-horizontal">
+		{{#link-to (to-lowercase (concat  items.name "." role.actionName))}}
+			{{role.actionName}}
+		{{/link-to}}
+	</div>
+{{/each}}
+
+{{yield}}

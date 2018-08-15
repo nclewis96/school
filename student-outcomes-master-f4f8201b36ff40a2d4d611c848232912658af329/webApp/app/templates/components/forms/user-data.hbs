@@ -1,0 +1,46 @@
+{{#lf-form rules=rules}}
+
+  {{lf-input
+
+    name="Name"
+    label="Name:"
+    property=data.name
+    on-update=(action (mut data.name))
+    validate=validate
+  }}
+
+  {{lf-input
+    name="username"
+    label="Username:"
+    property=data.username
+    on-update=(action (mut data.username))
+    validate=validate
+  }}
+
+  <div>
+    jobTitle:
+    {{one-way-select
+      data.jobTitle
+      options=jobTitleList
+      optionValuePath="id"
+      optionLabelPath="title"
+      update=(action (mut data.jobTitle))
+    }}
+  </div>
+
+  {{#each data.roles as |role|}}
+    <div>
+      Role:
+      {{one-way-select
+        data.role
+        options=roleList
+        optionValuePath="id"
+        optionLabelPath="name"
+        update=(action (mut data.role))
+      }}
+    </div>
+  {{/each}}
+
+{{/lf-form}}
+
+{{yield data}}

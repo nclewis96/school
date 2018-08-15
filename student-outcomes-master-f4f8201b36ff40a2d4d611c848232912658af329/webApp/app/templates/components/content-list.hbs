@@ -1,0 +1,39 @@
+<div id="content-list">
+	{{#list-items/program-item programs=model.programs as |program|}}
+      {{#if program.semesters}}
+        {{#list-items/semester-item semesters=program as |semester|}}
+            {{#list-items/course-item semester as |course|}}
+              <li {{action 'onItemClicked' course}}>{{course.name}}</li>
+            {{/list-items/course-item}}
+          {{#if semester.students}}
+            {{#each semester.students as |student|}}
+              <li {{action 'onItemClicked' student}}>{{student.name}}</li>
+            {{/each}}
+          {{/if}}
+        {{/list-items/semester-item}}
+      {{/if}}
+		{{#if program.users}}
+			{{#list-items/user-item users=program.users as |user|}}
+				<li {{action 'onItemClicked' user}}>{{user.name}}</li>
+			{{/list-items/user-item}}
+		{{/if}}
+	{{/list-items/program-item}}
+	<button {{action 'onEditClicked'}}> Edit </button>
+
+</div>
+<div id="main-content">
+	{{#if renderType}}
+        {{component
+            renderedComponent
+			controlType=controlType
+            data=data
+            subRoute=subRoute
+			permission=permission
+            onRenderButtonClick=(action 'onRenderButtonClick')
+        }}
+    {{else}}
+        <h1>Select something from the left</h1>
+    {{/if}}
+</div>
+
+{{yield}}

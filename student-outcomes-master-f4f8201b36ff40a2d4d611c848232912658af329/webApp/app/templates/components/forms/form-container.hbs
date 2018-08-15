@@ -1,0 +1,13 @@
+{{#component
+  renderedComponent
+  data=data
+  subRoute=subRoute
+  permission=permission
+  onRenderButtonClick=(action 'onRenderButtonClick')
+}}
+
+  {{component subRoute data}}
+  component {{renderedComponent}} exists.
+{{/component}}
+
+{{yield}}

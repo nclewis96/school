@@ -1,0 +1,74 @@
+{{#lf-form rules=rules as |validateFunction|}}
+
+  <div>
+    Course:
+    {{one-way-select
+      data.courseId
+      options=courseList
+      optionValuePath="id"
+      optionLabelPath="title"
+      update=(action (mut data.courseId))
+    }}
+  </div>
+
+  {{lf-input
+
+    label="Instructor Name"
+    property=data.instructorName
+    name="instructorName"
+    validate=validateFunction
+    on-update=(action (mut data.instructorName))
+  }}
+
+  <div>
+    Instructor:
+    {{one-way-select
+      data.instructorId
+      options=instructorList
+      optionValuePath="id"
+      optionLabelPath="name"
+      update=(action (mut data.instructorId))
+    }}
+  </div>
+
+  <div>
+    Semester:
+    {{one-way-select
+      data.semesterId
+      options=semesterList
+      optionValuePath="id"
+      optionLabelPath="year"
+      update=(action (mut data.semesterId))
+    }}
+  </div>
+
+  {{lf-input
+
+    label="Section Number"
+    property=data.sectionNum
+    name="sectionNum"
+    validate=validateFunction
+    on-update=(action (mut data.sectionNum))
+  }}
+
+  {{lf-input
+    name="locked"
+    label="Class is Locked"
+    property=data.locked
+    validate=validateFunction
+    on-update=(action (mut data.locked))
+  }}
+
+  {{lf-input
+    name="numStudents"
+    label="Number of Students"
+    property=data.numStudents
+    validate=validateFunction
+    on-update=(action (mut data.numStudents))
+  }}
+
+
+{{/lf-form}}
+
+
+{{yield data}}
